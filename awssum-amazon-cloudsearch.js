@@ -22,7 +22,6 @@ var dateFormat = require('dateformat');
 var awssum = require('awssum');
 var amazon = require('awssum-amazon');
 var operations = require('./config.js');
-var awsSignatureV4 = require('awssum-amazon/lib/aws-signature-v4.js');
 
 // --------------------------------------------------------------------------------------------------------------------
 // package variables
@@ -58,7 +57,7 @@ var CloudSearch = function(opts) {
 };
 
 // inherit from Amazon
-util.inherits(CloudSearch, amazon.Amazon);
+util.inherits(CloudSearch, amazon.AmazonSignatureV4);
 
 // --------------------------------------------------------------------------------------------------------------------
 // methods we need to implement from amazon.js
