@@ -31,10 +31,10 @@ var MARK = 'cloudsearch: ';
 // From: http://docs.amazonwebservices.com/general/latest/gr/rande.html
 var endPoint = {};
 endPoint[amazon.US_EAST_1]      = "cloudsearch.us-east-1.amazonaws.com";
-// endPoint[amazon.US_WEST_1]      = "";
-// endPoint[amazon.US_WEST_2]      = "";
-// endPoint[amazon.EU_WEST_1]      = "";
-// endPoint[amazon.AP_SOUTHEAST_1] = "";
+endPoint[amazon.US_WEST_1]      = "cloudsearch.us-west-1.amazonaws.com";
+endPoint[amazon.US_WEST_2]      = "cloudsearch.us-west-2.amazonaws.com";
+endPoint[amazon.EU_WEST_1]      = "cloudsearch.eu-west-1.amazonaws.com";
+endPoint[amazon.AP_SOUTHEAST_1] = "cloudsearch.ap-southeast-1.amazonaws.com";
 // endPoint[amazon.AP_NORTHEAST_1] = "";
 // endPoint[amazon.SA_EAST_1]      = "";
 // endPoint[amazon.US_GOV_WEST_1]  = "";
