@@ -1,6 +1,6 @@
 {
     "name" : "awssum-amazon-cloudsearch",
-    "description" : "NodeJS module to talk to Amazon CloudSearch.",
+    "description" : "AwsSum plugin for Amazon CloudSearch.",
     "version" : "1.0.1",
 
     "main" : "awssum-amazon-cloudsearch.js",
