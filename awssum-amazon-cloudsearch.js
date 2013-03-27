@@ -87,14 +87,6 @@ CloudSearch.prototype.version = function() {
     return version;
 };
 
-// This service uses the AWS Signature v4.
-// Hopefully, it fulfills : http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/requestauth.html
-CloudSearch.prototype.strToSign        = awsSignatureV4.strToSign;
-CloudSearch.prototype.signature        = awsSignatureV4.signature;
-CloudSearch.prototype.addSignature     = awsSignatureV4.addSignature;
-CloudSearch.prototype.addCommonOptions = awsSignatureV4.addCommonOptions;
-CloudSearch.prototype.contentType      = awsSignatureV4.contentType;
-
 // --------------------------------------------------------------------------------------------------------------------
 // operations on the service
 
