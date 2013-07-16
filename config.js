@@ -20,7 +20,7 @@ var requiredSpecial = { required : true,  type : 'special'                      
 
 // --------------------------------------------------------------------------------------------------------------------
 
-module.exports = {
+module.exports.CloudSearch = {
 
     // Configuration API
 
@@ -258,3 +258,24 @@ module.exports = {
 };
 
 // --------------------------------------------------------------------------------------------------------------------
+
+module.exports.DocumentService = {
+    DocumentsBatch : {
+        'args' : {
+            Docs : {
+              required : true,
+              type     : 'special'
+            }
+        },
+        addExtras: {
+            'body' : function(options, args) {
+                return JSON.stringify(args.Docs);
+            },
+            'ContentLength' : function(options, args) {
+                var self = this;
+                // add the Content-Length header we need
+                options.headers['Content-Length'] = args.ContentLength || Buffer.byteLength( options.body );
+            }
+        }
+    }
+};
