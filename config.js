@@ -18,6 +18,13 @@ var requiredData    = { required : true,  type : 'param-data',  prefix : 'member
 var requiredJson    = { required : true,  type : 'param-json'                     };
 var requiredSpecial = { required : true,  type : 'special'                        };
 
+function extrasContentLength(options, args) {
+  var self = this;
+
+  // add the Content-Length header we need
+  options.headers['Content-Length'] = args.ContentLength || Buffer.byteLength( options.body );
+}
+
 // --------------------------------------------------------------------------------------------------------------------
 
 module.exports.CloudSearch = {
@@ -261,21 +268,15 @@ module.exports.CloudSearch = {
 
 module.exports.DocumentService = {
     DocumentsBatch : {
-        'args' : {
+        args : {
             Docs : {
               required : true,
               type     : 'special'
             }
         },
-        addExtras: {
-            'body' : function(options, args) {
-                return JSON.stringify(args.Docs);
-            },
-            'ContentLength' : function(options, args) {
-                var self = this;
-                // add the Content-Length header we need
-                options.headers['Content-Length'] = args.ContentLength || Buffer.byteLength( options.body );
-            }
-        }
+        body : function(options, args) {
+          return JSON.stringify(args.Docs);
+        },
+        addExtras: extrasContentLength
     }
 };
