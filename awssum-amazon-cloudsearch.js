@@ -90,7 +90,7 @@ CloudSearch.prototype.version = function() {
 // --------------------------------------------------------------------------------------------------------------------
 // operations on the service
 
-_.each(operations, function(operation, operationName) {
+_.each(operations.CloudSearch, function(operation, operationName) {
     CloudSearch.prototype[operationName] = awssum.makeOperation(operation);
 });
 
@@ -157,21 +157,7 @@ DocumentService.prototype.addCommonOptions = function(options, args) {
 //
 // * http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/DocumentsBatch.html
 
-var docOperations = {
-    DocumentsBatch : {
-        'args' : {
-            Docs : {
-                required : true,
-                type     : 'special',
-            },
-        },
-        'body' : function(options, args) {
-            return JSON.stringify(args.Docs);
-        },
-    },
-};
-
-_.each(docOperations, function(operation, operationName) {
+_.each(operations.DocumentService, function(operation, operationName) {
     DocumentService.prototype[operationName] = awssum.makeOperation(operation);
 });
 
